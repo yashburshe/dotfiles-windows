@@ -53,7 +53,7 @@
     "github.copilot.nextEditSuggestions.enabled": true,
     "workbench.startupEditor": "none",
     "terminal.integrated.fontFamily": "FiraMono Nerd Font Mono",
-    "workbench.colorTheme": "Tokyo Night Storm",
+    "workbench.colorTheme": "Tokyo Night",
     "editor.fontLigatures": false,
     "terminal.integrated.defaultProfile.linux": "zsh",
     "telemetry.editStats.enabled": false,
