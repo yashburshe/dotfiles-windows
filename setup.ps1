@@ -1,3 +1,9 @@
+<#
+    Author: Yash Burshe
+    Date: 11/17/2025
+    License: MIT
+#>
+
 $dotfiles = Split-Path -Parent $MyInvocation.MyCommand.Definition
 
 Write-Host "Installing dotfiles"
