@@ -1,0 +1,1 @@
+oh-my-posh init pwsh --config ~/mina.omp.json | Invoke-Expression

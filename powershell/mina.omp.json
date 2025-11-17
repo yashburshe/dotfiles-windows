@@ -1,0 +1,69 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#CECE04",
+          "style": "plain",
+          "template": "# ",
+          "type": "root"
+        },
+        {
+          "foreground": "#9e7272",
+          "style": "plain",
+          "template": "[{{ .CurrentDate | date .Format }}] ",
+          "type": "time"
+        },
+        {
+          "foreground": "#f4b4b4",
+          "style": "plain",
+          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }}",
+          "type": "session"
+        },
+        {
+          "background": "#9e5757",
+          "foreground": "white",
+          "properties": {
+            "folder_icon": "\u2026",
+            "style": "mixed"
+          },
+          "style": "diamond",
+          "leading_diamond": " \ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": "{{ .Path }}",
+          "type": "path"
+        },
+        {
+          "foreground": "#db5555",
+          "properties": {
+            "fetch_upstream_icon": true
+          },
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "type": "git"
+        },
+        {
+          "foreground": "#f59292",
+          "powerline_symbol": "\ue0b0",
+          "template": "\ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}",
+          "type": "python"
+        },
+        {
+          "foreground": "#cc6f6f",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#E84855{{ end }}"
+          ],
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "plain",
+          "template": " <#c9a4cc>\uf054</> ",
+          "type": "status"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "version": 3
+}
