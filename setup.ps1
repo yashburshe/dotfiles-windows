@@ -6,6 +6,8 @@
 
 $currentPSVersion = $PSVersionTable.PSVersion | Select-Object -ExpandProperty Major
 
+$dotfiles = Split-Path -Parent $MyInvocation.MyCommand.Definition
+
 Write-Host "Current PowerShell Major Version: $currentPSVersion"
 
 function InstallPowerShell() {
@@ -34,11 +36,11 @@ code --install-extension ms-python.autopep8
 code --install-extension esbenp.prettier-vscode
 code --install-extension enkia.tokyo-night
 
-# Write-Host "Installing Git for Windows"
+Write-Host "Installing Git for Windows"
 
-# winget install --id Git.Git -e --source winget
+winget install --id Git.Git -e --source winget --custom "/LOADINF=$dotfiles\git\git_options.ini"
 
-# Write-Host "Git Installed. Please make sure to set the config using\ngit config --global user.email\ngit config --global user.name"
+Write-Host "Git Installed. Please make sure to set the config using`ngit config --global user.email`ngit config --global user.name"
 
 Write-Host "Installing Microsoft Terminal"
 
@@ -49,8 +51,6 @@ Write-Host "Installing Oh-My-Posh"
 winget install --id JanDeDobbeleer.OhMyPosh --source winget
 
 Write-Host "Finished Installing Applications"
-
-$dotfiles = Split-Path -Parent $MyInvocation.MyCommand.Definition
 
 Write-Host "Installing dotfiles"
 
