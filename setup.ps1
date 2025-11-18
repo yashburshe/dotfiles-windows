@@ -4,9 +4,25 @@
     License: MIT
 #>
 
-Write-Host "Installing PowerShell"
+$currentPSVersion = $PSVersionTable.PSVersion | Select-Object -ExpandProperty Major
 
-winget install --id Microsoft.PowerShell --source winget
+Write-Host "Current PowerShell Major Version: $currentPSVersion"
+
+function InstallPowerShell() {
+    Write-Host "Installing PowerShell"
+    winget install --id Microsoft.PowerShell --source winget
+    Write-Host "Latest PowerShell installed. Please open it and run this script "
+    exit
+}
+
+if($currentPSVersion -lt 7) {
+    Write-Host "This script requires minimum PowerShell verison 7 to run"
+    $IsInstallPowerShell = Read-Host "Would you like to install the latest PowerShell from winget? [Y/N]"
+    switch ($IsInstallPowerShell) {
+        "Y" { InstallPowerShell }
+        "N" { exit }
+    }
+}
 
 Write-Host "Installing Visual Studio Code"
 
