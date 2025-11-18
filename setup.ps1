@@ -4,6 +4,36 @@
     License: MIT
 #>
 
+Write-Host "Installing PowerShell"
+
+winget install --id Microsoft.PowerShell --source winget
+
+Write-Host "Installing Visual Studio Code"
+
+winget install --id Microsoft.VisualStudioCode --source winget
+
+Write-Host "Installing Visual Studio Code Extensions"
+
+code --install-extension ms-python.autopep8
+code --install-extension esbenp.prettier-vscode
+code --install-extension enkia.tokyo-night
+
+# Write-Host "Installing Git for Windows"
+
+# winget install --id Git.Git -e --source winget
+
+# Write-Host "Git Installed. Please make sure to set the config using\ngit config --global user.email\ngit config --global user.name"
+
+Write-Host "Installing Microsoft Terminal"
+
+winget install --id Microsoft.WindowsTerminal --source winget
+
+Write-Host "Installing Oh-My-Posh"
+
+winget install --id JanDeDobbeleer.OhMyPosh --source winget
+
+Write-Host "Finished Installing Applications"
+
 $dotfiles = Split-Path -Parent $MyInvocation.MyCommand.Definition
 
 Write-Host "Installing dotfiles"
