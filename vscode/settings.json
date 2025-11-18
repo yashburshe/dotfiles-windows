@@ -10,7 +10,7 @@
     "editor.stickyScroll.enabled": false,
     "editor.renderWhitespace": "none",
     "editor.renderControlCharacters": false,
-    "editor.fontFamily": "FiraMono Nerd Font Mono",
+    "editor.fontFamily": "FiraCode Nerd Font",
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
     },
@@ -20,7 +20,6 @@
     "[jsonc]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "editor.defaultFormatter": "Meezilla.json",
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -45,19 +44,16 @@
     "[plaintext]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "svelte.enable-ts-plugin": true,
     "[svelte]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "workbench.editor.empty.hint": "hidden",
-    "github.copilot.nextEditSuggestions.enabled": true,
     "workbench.startupEditor": "none",
-    "terminal.integrated.fontFamily": "FiraMono Nerd Font Mono",
-    "workbench.colorTheme": "Tokyo Night",
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font",
     "editor.fontLigatures": false,
-    "terminal.integrated.defaultProfile.linux": "zsh",
     "telemetry.editStats.enabled": false,
     "telemetry.feedback.enabled": false,
     "telemetry.telemetryLevel": "off",
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.colorTheme": "Tokyo Night"
 }
