@@ -82,9 +82,6 @@ function CreateLink($Source, $Target) {
 $pwshProfile = "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 CreateLink "$dotfiles\powershell\Microsoft.PowerShell_profile.ps1" $pwshProfile
 
-$ompTheme = "$env:USERPROFILE\mina.omp.json"
-CreateLink "$dotfiles\powershell\mina.omp.json" $ompTheme
-
 $vscodeSettings = "$env:USERPROFILE\AppData\Roaming\Code\User\settings.json"
 CreateLink "$dotfiles\vscode\settings.json" $vscodeSettings
 
