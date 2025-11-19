@@ -37,7 +37,7 @@ DownloadGitHubRepository
 
 Write-Host "dotfiles set up done"
 
-$dotfiles = $env:USERPROFILE + '\dotfiles'
+$dotfiles = Join-Path $env:USERPROFILE "dotfiles"
 
 Write-Host "Installing Visual Studio Code"
 
