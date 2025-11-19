@@ -6,8 +6,6 @@
 
 $currentPSVersion = $PSVersionTable.PSVersion | Select-Object -ExpandProperty Major
 
-$dotfiles = Split-Path -Parent $MyInvocation.MyCommand.Definition
-
 Write-Host "Current PowerShell Major Version: $currentPSVersion"
 
 function InstallPowerShell() {
@@ -25,6 +23,21 @@ if($currentPSVersion -lt 7) {
         "N" { exit }
     }
 }
+
+function DownloadGitHubRepository() {
+    Invoke-WebRequest 'https://github.com/yashburshe/dotfiles/archive/refs/heads/main.zip' -OutFile $env:USERPROFILE\dotfiles.zip
+    Expand-Archive .\dotfiles.zip .\
+    Rename-Item .\dotfiles-main .\dotfiles
+    Remove-Item .\dotfiles.zip
+}
+
+Write-Host "Downloading dotfiles"
+
+DownloadGitHubRepository
+
+Write-Host "dotfiles set up done"
+
+$dotfiles = $env:USERPROFILE\dotfiles
 
 Write-Host "Installing Visual Studio Code"
 
