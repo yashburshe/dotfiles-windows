@@ -12,7 +12,7 @@ Dotfiles for my personal Windows 11 setup. If you want to use the script, please
 Run the following in PowerShell
 
 ```powershell
-irm "https://raw.githubusercontent.com/yashburshe/dotfiles/main/setup.ps1" | iex
+irm "https://raw.githubusercontent.com/yashburshe/dotfiles-windows/main/setup.ps1" | iex
 ```
 
 The script does the following:
