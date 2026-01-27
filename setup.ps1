@@ -25,7 +25,7 @@ if($currentPSVersion -lt 7) {
 }
 
 function DownloadGitHubRepository() {
-    Invoke-WebRequest 'https://github.com/yashburshe/dotfiles/archive/refs/heads/main.zip' -OutFile $env:USERPROFILE\dotfiles.zip
+    Invoke-WebRequest 'https://github.com/yashburshe/dotfiles-windows/archive/refs/heads/main.zip' -OutFile $env:USERPROFILE\dotfiles.zip
     Expand-Archive .\dotfiles-windows.zip .\
     Rename-Item .\dotfiles-windows-main .\dotfiles
     Remove-Item .\dotfiles-windows.zip
