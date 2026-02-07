@@ -55,6 +55,10 @@ Write-Host "Installing Visual Studio Code"
 
 winget install --id Microsoft.VisualStudioCode --source winget
 
+Write-Host "Refreshing PATH"
+
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+
 Write-Host "Installing Visual Studio Code Extensions"
 
 code --install-extension ms-python.autopep8
