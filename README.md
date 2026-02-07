@@ -27,3 +27,4 @@ The following applications are installed:
 - Git for Windows (Options for the installer can be found in `git/git_options.ini`)
 - Microsoft Terminal
 - Oh-My-Posh
+- NVM for Windows
