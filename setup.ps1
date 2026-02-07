@@ -79,16 +79,35 @@ Write-Host "Installing Oh-My-Posh"
 
 winget install --id JanDeDobbeleer.OhMyPosh --source winget
 
+Write-Host "Installing NVM for Windows"
+
+winget install --id CoreyButler.NVMforWindows
+
 Write-Host "Finished Installing Applications"
 
 Write-Host "Installing dotfiles"
 
 function CreateLink($Source, $Target) {
     if(Test-Path $Target) {
-        Write-Host "$Target already exists, creating a backup $Target.bak"
-        Move-Item $Target "$Target.bak" -Force
+        $item = Get-Item $Target
+
+        if ($item.LinkType -eq "SymbolicLink" -and $item.Target -eq $Source) {
+            Write-Host "Link already exists: $Target"
+            return
+        }
+
+        if ($item.LinkType -ne "SymbolicLink") {
+            Write-Host "$Target already exists, creating a backup $Target.bak"
+            Move-Item $Target "$Target.bak" -Force
+        } else {
+            Write-Host "Incorrect symbolic link found: $Target, removing it."
+            Remove-Item $Target -Force
+        }
     } else {
-        New-Item -ItemType Directory -Force -Path (Split-Path $Target)
+        $parentDir = Split-Path $Target
+        if(!(Test-Path $parentDir)) {
+            New-Item -ItemType Directory -Force -Path (Split-Path $Target)
+        }
     }
 
     Write-Host "Creating Link $Target to $Source"
