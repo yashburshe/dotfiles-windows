@@ -25,10 +25,22 @@ if($currentPSVersion -lt 7) {
 }
 
 function DownloadGitHubRepository() {
-    Invoke-WebRequest 'https://github.com/yashburshe/dotfiles-windows/archive/refs/heads/main.zip' -OutFile $env:USERPROFILE\dotfiles.zip
-    Expand-Archive .\dotfiles.zip .\
-    Rename-Item .\dotfiles-windows-main .\dotfiles
-    Remove-Item .\dotfiles-windows.zip
+    $tempName = [System.IO.Path]::GetRandomFileName()
+    $tempZipPath = Join-Path -Path $env:USERPROFILE -ChildPath "$tempName.zip"
+    $dotfilesFolder = Join-Path -Path $env:USERPROFILE -ChildPath "dotfiles"
+    
+    Invoke-WebRequest 'https://github.com/yashburshe/dotfiles-windows/archive/refs/heads/main.zip' -OutFile $tempZipPath
+
+    if (Test-Path $dotfilesFolder) {
+        Remove-Item $dotfilesFolder -Recurse -Force
+    }
+
+    Expand-Archive -Path $tempZipPath -DestinationPath $env:USERPROFILE
+    
+    $extractedPath = Join-Path -Path $env:USERPROFILE -ChildPath "dotfiles-windows-main"
+    Rename-Item -Path $extractedPath -NewName "dotfiles"
+
+    Remove-Item $tempZipPath -Force
 }
 
 Write-Host "Downloading dotfiles"
