@@ -91,8 +91,7 @@ function CreateLink($Source, $Target) {
     New-Item -ItemType SymbolicLink -Path $Target -Target $Source -Force
 }
 
-$pwshProfile = "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
-CreateLink "$dotfiles\powershell\Microsoft.PowerShell_profile.ps1" $pwshProfile
+CreateLink "$dotfiles\powershell\Microsoft.PowerShell_profile.ps1" $PROFILE
 
 $vscodeSettings = "$env:USERPROFILE\AppData\Roaming\Code\User\settings.json"
 CreateLink "$dotfiles\vscode\settings.json" $vscodeSettings
