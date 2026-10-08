@@ -10,7 +10,7 @@ Write-Host "Current PowerShell Major Version: $currentPSVersion"
 
 function InstallPowerShell() {
     Write-Host "Installing PowerShell"
-    winget install --id Microsoft.PowerShell --source winget
+    winget install --id Microsoft.PowerShell --exact --source winget --installer-type wix --force
     Write-Host "Latest PowerShell installed. Please open it and run this script "
     exit
 }
